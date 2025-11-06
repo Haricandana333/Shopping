@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+
+    <title>Shopping App</title>
+    <style>
+        body {
+            background-color: #676fde;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 120px;
+        }
+
+
+        overheader{
+            text-align: center;
+
+            position: relative;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            }
+
+            @keyframes example {
+            0%   {background-color:red; left:0px; top:0px;}
+            25%  {background-color:yellow; left:200px; top:0px;}
+            50%  {background-color:blue; left:200px; top:200px;}
+            75%  {background-color:green; left:0px; top:200px;}
+            100% {background-color:red; left:0px; top:0px;}
+        }
+
+
+
+
+
+
+        header {
+           
+            background-color: #4c57eb;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+            width: 1060px;
+            box-shadow: 0px 0px 7px 7px lightblue;
+           
+        }
+
+
+
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 5px;
+          
+            
+            
+        }
+
+        .product {
+            border: 1px solid #e06464;
+            border-radius: 5px;
+            background-color: yellow;
+            margin: 10px;
+            padding: 6px;
+            width: 200px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #9b4caf;
+            color: rgb(39, 7, 7);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart {
+            background-color: #1cf16d;
+            color: rgb(32, 32, 26);
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 90px;
+            height: 100%;
+            border-radius: 10px;
+            overflow-y: auto;
+        }
+
+
+
+        #Your-carts{
+            background-color: rgb(225, 225, 12);
+            color:#1623df;
+            height: 30px;
+            width: 95px;
+            font-size: 16px;
+            text-align: center;
+            padding: 1px;
+            border-radius: 0px;
+            box-shadow: 0px 0px 3px 3px rgb(238, 94, 161); 
+        }
+
+        #cart-item {
+            border-bottom: 1px solid #def113;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        #total {
+            background-color: rgb(236, 82, 16);
+            height: 40px;
+            width: 100px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+
+        #checkout-btn {
+            background-color: #161817;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #checkout-btn:hover {
+            background-color: #b92976;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <overheader>
+        <h1 class="font-effect-neon"> Welcome to Haricandana's Website</h1>
+    </overheader>
+
+
+    <header>
+        <h1 class="font-effect-neon">Shopping App</h1>
+    </header> <br> <br>
+
+    <div id="product-list">
+        <div class="product" data-id="1" data-name="Product 1" data-price="1.00">
+            <h>Buy 2- get free 1</h>
+            <img src="my1.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$1.00</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+
+
+        <div class="product" data-id="2" data-name="Product 2" data-price="15.00">
+            <h>Product 2</h>
+            <img src="my2.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$15.00</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="3" data-name="Product 3" data-price="70.00">
+            <h>Product 3</h>
+            <img src="my3.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$70.00</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="4" data-name="Product 4" data-price="90.00">
+            <h>Product 4</h>
+            <img src="my4.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$90.00</p>
+            <button onclick="addToCart(4)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="5" data-name="Product 5" data-price="100.00">
+            <h>Product 5</h>
+            <img src="my5.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$100.00</p>
+            <button onclick="addToCart(5)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="6" data-name="Product 6" data-price="15.00">
+            <h>Product 6</h>
+            <img src="my6.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$15.00</p>
+            <button onclick="addToCart(6)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="7" data-name="Product 7" data-price="15.00">
+            <h>Product 7</h>
+            <img src="my7.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$15.00</p>
+            <button onclick="addToCart(7)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="8" data-name="Product 8" data-price="15.00">
+            <h>Product 2</h>
+            <img src="my8.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$15.00</p>
+            <button onclick="addToCart(8)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-id="9" data-name="Product 9" data-price="15.00">
+            <h>Product 9</h>
+            <img src="my9.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$15.00</p>
+            <button onclick="addToCart(9)">Add to Cart</button>
+        </div> 
+
+
+        <div class="product" data-id="10" data-name="Product 9" data-price="15.00">
+            <h>Product 9</h>
+            <img src="my10.jpg.jpg" alt="Cinque Terre" width="150" height="100">
+            <p>$15.00</p>
+            <button onclick="addToCart(9)">Add to Cart</button>
+        </div> 
+
+        <!-- Add more products as needed -->
+        </div>
+
+
+
+        <div id="cart">
+            <div id="Your-carts"> Your Cart
+        <h2 class="font-effect-neon"> <p id="demo3"></p> <br> <br></h2>     
+        </div><br> <br> <br> <br> <br>
+
+
+            <div id="cart-items"></div> 
+            <div id="total">Total: $0.00</div>
+            <button id="checkout-btn" onclick="checkout()">Checkout</button>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let cart = [];
+
+        function addToCart(productId) {
+            const product = document.querySelector(`[data-id="${productId}"]`);
+            const productName = product.dataset.name;
+            const productPrice = parseFloat(product.dataset.price);
+
+            cart.push({ id: productId, name: productName, price: productPrice });
+            updateCart();
+        }
+
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalElement = document.getElementById('total');
+            let total = 0;
+
+            cartItems.innerHTML = '';
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.id = `cart-item-${item.id}`;
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>$${item.price.toFixed(2)}</div>
+                    <button onclick="removeFromCart(${item.id})">Remove</button>
+                `;
+
+                cartItems.appendChild(cartItem);
+                total += item.price;
+            });
+
+            totalElement.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+
+        function checkout() {
+            // Implement your checkout logic here
+            alert(' From Haricandana.Thank you for your purchase!');
+            cart = [];
+            updateCart();
+        }
+
+
+
+        setInterval(myTimer, 1000);
+        function myTimer() {
+          const d = new Date();
+          document.getElementById("demo3").innerHTML = d.toLocaleTimeString();
+        }
+    </script>
+</body>
+</html>
